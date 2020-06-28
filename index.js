@@ -22,9 +22,8 @@ async function run() {
         };
 
         await exec.exec('docker', ['login', '-u', '_json_key', '-p', serviceAccountKey, 'https://' + host], options)
+            .then(() => {console.log(myOutput)})
             .catch(() => {throw {message: myError}})
-
-        console.log(myOutput)
     } catch (error) {
         core.setFailed(error.message)
     }
