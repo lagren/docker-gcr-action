@@ -11,4 +11,6 @@ jobs:
         uses: ./ # Uses an action in the root directory
         with:
           SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-      - run: docker ps
+      - run: docker pull alpine
+      - run: docker tag alpine ${{ secrets.DOCKER_TEST_TAG }}
+      - run: docker push ${{ secrets.DOCKER_TEST_TAG }}
