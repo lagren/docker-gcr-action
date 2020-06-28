@@ -4,6 +4,10 @@ inputs:
   SERVICE_ACCOUNT_KEY:
     description: 'Google Service Account key in JSON format'
     required: true
+  HOST:
+    description: 'GCR host to log into. Defaults to gcr.io'
+    required: true
+    default: 'gcr.io'
 runs:
   using: node12
   main: 'dist/index.js'

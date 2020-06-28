@@ -4,6 +4,7 @@ const exec = require('@actions/exec')
 async function run() {
     try {
         const serviceAccountKey = core.getInput("SERVICE_ACCOUNT_KEY", {required: true})
+        const host = core.getInput('HOST', {required: true})
 
         let myOutput = '';
         let myError = '';
@@ -20,7 +21,7 @@ async function run() {
             }
         };
 
-        await exec.exec('docker', ['login', '-u', '_json_key', '-p', serviceAccountKey, 'https://asia.gcr.io'], options)
+        await exec.exec('docker', ['login', '-u', '_json_key', '-p', serviceAccountKey, 'https://' + host], options)
             .catch(() => {throw {message: myError}})
 
     } catch (error) {
