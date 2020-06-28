@@ -8,6 +8,9 @@ inputs:
     description: 'GCR host to log into. Defaults to gcr.io'
     required: true
     default: 'gcr.io'
+branding:
+  icon: unlock
+  color: gray-dark
 runs:
   using: node12
   main: 'dist/index.js'
