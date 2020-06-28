@@ -1,5 +1,7 @@
 # docker-gcr-action
 
+![.github/workflows/main.yml](https://github.com/lagren/docker-gcr-action/workflows/.github/workflows/main.yml/badge.svg)
+
 [GitHub Action](https://github.com/features/actions) for allowing Docker to push images to [Google Cloud Container Regitry](https://cloud.google.com/container-registry).
 
 Requirements:
