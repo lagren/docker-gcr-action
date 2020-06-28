@@ -21,7 +21,11 @@ async function run() {
             }
         };
 
-        await exec.exec('docker', ['login', '-u', '_json_key', '-p', serviceAccountKey, 'https://' + host], options)
+        const registry = 'https://' + host
+
+        console.log(`Logging into ${registry}`)
+
+        await exec.exec('docker', ['login', '-u', '_json_key', '-p', serviceAccountKey, registry], options)
             .then(() => {console.log(myOutput)})
             .catch(() => {throw {message: myError}})
     } catch (error) {
