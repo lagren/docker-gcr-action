@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  test_run:
+    runs-on: ubuntu-latest
+    name: Test job
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Login Docker
+        uses: ./ # Uses an action in the root directory
+        with:
+          SERVICE_ACCOUNT_KEY: ${{ secret.SERVICE_ACCOUNT_KEY }}
+      - run: docker ps
