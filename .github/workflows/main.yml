@@ -10,5 +10,5 @@ jobs:
       - name: Login Docker
         uses: ./ # Uses an action in the root directory
         with:
-          SERVICE_ACCOUNT_KEY: ${{ secret.SERVICE_ACCOUNT_KEY }}
+          SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
       - run: docker ps
