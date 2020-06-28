@@ -969,6 +969,7 @@ const exec = __webpack_require__(986)
 async function run() {
     try {
         const serviceAccountKey = core.getInput("SERVICE_ACCOUNT_KEY", {required: true})
+        const host = core.getInput('HOST', {required: true})
 
         let myOutput = '';
         let myError = '';
@@ -985,9 +986,13 @@ async function run() {
             }
         };
 
-        await exec.exec('docker', ['login', '-u', '_json_key', '-p', serviceAccountKey, 'https://asia.gcr.io'], options)
-            .catch(() => {throw {message: myError}})
+        const registry = 'https://' + host
 
+        console.log(`Logging into ${registry}`)
+
+        await exec.exec('docker', ['login', '-u', '_json_key', '-p', serviceAccountKey, registry], options)
+            .then(() => {console.log(myOutput)})
+            .catch(() => {throw {message: myError}})
     } catch (error) {
         core.setFailed(error.message)
     }

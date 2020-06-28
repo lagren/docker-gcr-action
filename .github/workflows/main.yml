@@ -12,8 +12,6 @@ jobs:
         with:
           SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
           HOST: gcr.io
-      - name: debug
-        run: cat ~/.docker/config.json
       - name: docker live test
         run: |
           docker pull alpine
