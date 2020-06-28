@@ -1,0 +1,9 @@
+name: 'docker-gcr-action'
+description: 'Provides login for docker process to publish to Google Cloud Container Registry'
+inputs:
+  SERVICE_ACCOUNT_KEY:
+    description: 'Google Service Account key in JSON format'
+    required: true
+runs:
+  using: node12
+  main: 'dist/index.js'
