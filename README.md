@@ -11,7 +11,7 @@ Requirements:
 Example usage:
 ```yaml
 - name: Login Docker
-  use: 'lagren/docker-gcr-action@master'
+  uses: 'lagren/docker-gcr-action@master'
   with:
     SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
     HOST: 'gcr.io'
