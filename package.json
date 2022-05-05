@@ -4,7 +4,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/exec": "^1.0.4",
+    "@actions/exec": "^1.1.1",
     "@zeit/ncc": "^0.22.3"
   },
   "devDependencies": {}
